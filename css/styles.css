@@ -111,7 +111,7 @@ nav h1 a {
   height: auto;
   background-color: #3397DB;
   align-items: center;
-  padding: 10px;
+  padding: 10px 0;
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
@@ -155,7 +155,7 @@ nav h1 a {
   min-height: 380px;
   padding: 0 30px 25px;
   text-align: left;
-  width: 260px;
+  width: 245px;
 }
 #restaurants-list .restaurant-img {
   background-color: #ccc;
