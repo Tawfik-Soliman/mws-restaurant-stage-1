@@ -217,6 +217,6 @@ if ('serviceWorker' in navigator) {
   // console.log('serviceWorker supported');
   navigator.serviceWorker
     .register('/sw.js')
-    .then(reg => console.log('SW registered'))
-    .catch(error => console.log(error));
+    .then(reg => console.log(`SW registered in scope ${reg.scope}`))
+    .catch(error => console.log(`Registration failed and error is ${error}`));
 }
