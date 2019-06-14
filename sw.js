@@ -58,3 +58,13 @@ self.addEventListener('activate', (e) => {
 		})
 	);
 });
+
+//caling fetch event
+self.addEventListener('fetch', (e) => {
+	console.log('Fetching requests');
+	// fetch requests
+	e.respondWith(fetch(e.request)
+		//reply from network or service worker if offline
+		.catch(() => caches.match(e.request))
+	);
+});
