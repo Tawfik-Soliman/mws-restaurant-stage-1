@@ -85,6 +85,9 @@ fillRestaurantHTML = (restaurant = self.restaurant) => {
 
   const address = document.getElementById('restaurant-address');
   address.innerHTML = restaurant.address;
+  //Adding accessibility to the restaurant Address
+  address.setAttribute('tabindex', '0');
+  address.setAttribute('aria-label', `restaurant address ${restaurant.address}`);
 
   const image = document.getElementById('restaurant-img');
   image.className = 'restaurant-img'
@@ -119,6 +122,9 @@ fillRestaurantHoursHTML = (operatingHours = self.restaurant.operating_hours) => 
     row.appendChild(time);
 
     hours.appendChild(row);
+    //Adding accessibility to the table of operating hours
+    row.setAttribute('tabindex', '0');
+    row.setAttribute('aria-label', `hours ${key} ${operatingHours[key]}`);
   }
 }
 
@@ -129,6 +135,7 @@ fillReviewsHTML = (reviews = self.restaurant.reviews) => {
   const container = document.getElementById('reviews-container');
   const title = document.createElement('h2');
   title.innerHTML = 'Reviews';
+  title.setAttribute('tabindex', '0');  //Adding tabindex to reviews
   container.appendChild(title);
 
   if (!reviews) {
@@ -164,6 +171,9 @@ createReviewHTML = (review) => {
   const comments = document.createElement('p');
   comments.innerHTML = review.comments;
   li.appendChild(comments);
+  //Adding accessibility to the reviews
+  li.setAttribute('tabindex', '0');
+  li.setAttribute('aria-label', `review ${review.name} ${review.date} rating ${review.rating} ${review.comments}`);
 
   return li;
 }
