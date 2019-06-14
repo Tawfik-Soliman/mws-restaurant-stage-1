@@ -43,4 +43,18 @@ self.addEventListener('install', (e) => {
 // Calling activate event
 self.addEventListener('activate', (e) => {
 	console.log('SW Activated');
+	//delete old cache
+	e.waitUntil(
+		caches
+		.keys().then(cacheNames => {
+			return Promise.all(
+				cacheNames.map(cache => {
+					if (cache !== cacheName) {
+						console.log('delete old cache');
+						return caches.delete(cache);
+					}
+				})
+			)
+		})
+	);
 });
